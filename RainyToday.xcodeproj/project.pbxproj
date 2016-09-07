@@ -14,6 +14,7 @@
 		554D0E851D80889500719CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554D0E831D80889500719CA7 /* LaunchScreen.storyboard */; };
 		554D0E901D80889500719CA7 /* RainyTodayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D0E8F1D80889500719CA7 /* RainyTodayTests.swift */; };
 		554D0E9B1D80889500719CA7 /* RainyTodayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D0E9A1D80889500719CA7 /* RainyTodayUITests.swift */; };
+		554D0EA91D8089A800719CA7 /* WeatherRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D0EA81D8089A800719CA7 /* WeatherRetriever.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		554D0E961D80889500719CA7 /* RainyTodayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainyTodayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		554D0E9A1D80889500719CA7 /* RainyTodayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainyTodayUITests.swift; sourceTree = "<group>"; };
 		554D0E9C1D80889500719CA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		554D0EA81D8089A800719CA7 /* WeatherRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherRetriever.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				554D0E7A1D80889400719CA7 /* AppDelegate.swift */,
 				554D0E7C1D80889400719CA7 /* ViewController.swift */,
+				554D0EA81D8089A800719CA7 /* WeatherRetriever.swift */,
 				554D0E7E1D80889500719CA7 /* Main.storyboard */,
 				554D0E811D80889500719CA7 /* Assets.xcassets */,
 				554D0E831D80889500719CA7 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				554D0EA91D8089A800719CA7 /* WeatherRetriever.swift in Sources */,
 				554D0E7D1D80889400719CA7 /* ViewController.swift in Sources */,
 				554D0E7B1D80889400719CA7 /* AppDelegate.swift in Sources */,
 			);

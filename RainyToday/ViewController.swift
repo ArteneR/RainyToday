@@ -1,25 +1,31 @@
-//
-//  ViewController.swift
-//  RainyToday
-//
-//  Created by Tener ArteneR on 9/7/16.
-//  Copyright © 2016 Tener ArteneR. All rights reserved.
-//
 
 import UIKit
 
+ typealias FinishedFetchingData = () -> ()
+
 class ViewController: UIViewController {
 
+   
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+      
+        self.getWeatherInfo()
+    
     }
-
+    
+    func getWeatherInfo() {
+        let city:String = "Timisoara"
+        let weather = WeatherRetriever()
+        
+        weather.getWeather(city)
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
 }
-
