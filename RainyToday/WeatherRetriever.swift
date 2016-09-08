@@ -34,17 +34,9 @@ class WeatherRetriever {
             { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
         
                 do {
-                    if let pString = NSString(data: data!, encoding: NSUTF8StringEncoding) {
+                    if NSString(data: data!, encoding: NSUTF8StringEncoding) != nil {
                         self.retrievedDataDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary as? [String : AnyObject]
-                        
-                        let longitude = self.retrievedDataDictionary!["base"] as! String
-                        let code = self.retrievedDataDictionary!["cod"] as! Int
-                        
-                        
-                        print("LONGITUDE: ")
-                        print(longitude)
-                        print(code)
-                        
+                    
                         let flag = true
                         completionHandler(success: flag)
                         
@@ -61,9 +53,40 @@ class WeatherRetriever {
     }
     
     
-    func getWeatherCode() {
-        print(self.retrievedDataDictionary!["cod"] as! Int);
+    func getCityLongitude() -> Float {
+        return self.retrievedDataDictionary!["coord"]!["lon"] as! Float
     }
+    
+    func getCityLatitude() -> Float {
+        return self.retrievedDataDictionary!["coord"]!["lat"] as! Float
+    }
+    
+    func getTemperature() -> Float {
+        return self.retrievedDataDictionary!["main"]!["temp"] as! Float
+    }
+    
+    func getMinTemperature() -> Float {
+        return self.retrievedDataDictionary!["main"]!["temp_min"] as! Float
+    }
+    
+    func getMaxTemperature() -> Float {
+        return self.retrievedDataDictionary!["main"]!["temp_max"] as! Float
+    }
+    
+    func getPressure() -> Float {
+        return self.retrievedDataDictionary!["main"]!["pressure"] as! Float
+    }
+
+    func getHumidity() -> Float {
+        return self.retrievedDataDictionary!["main"]!["humidity"] as! Float
+    }
+    
+    
+    func getWeatherCode() -> Int {
+        return self.retrievedDataDictionary!["cod"] as! Int
+    }
+    
+    
     
     
 }

@@ -31,8 +31,14 @@ class ViewController: UIViewController {
             }
             
             
-            weather.getWeatherCode()
-            
+            print(weather.getWeatherCode())
+            print(weather.getCityLatitude())
+            print(weather.getCityLongitude())
+            print(weather.getTemperature())
+            print(weather.getHumidity())
+            print(weather.getPressure())
+            print(weather.getMinTemperature())
+            print(weather.getMaxTemperature())
             
             
             
