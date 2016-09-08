@@ -3,20 +3,122 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RainyToday" customModuleProvider="target" sceneMemberID="viewController">
-                    <imageView key="view" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" id="HVb-iR-Jwd">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XZR-H7-IIR"/>
+                        <viewControllerLayoutGuide type="bottom" id="s5f-yr-hZ8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gP3-s1-Uqm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bTx-EF-nK9">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njc-LH-iXa">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Get Weather"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="41" y="145" width="87" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="clickedGetWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Csr-4x-cJj"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1LC-Dd-sFs">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="41" y="107" width="194" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter city name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUM-Hr-FWk">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="41" y="78" width="124" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGU-iV-RDT">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="41" y="183" width="339" height="21"/>
+                                </variation>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6XH-nq-zWm">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="41" y="212" width="339" height="336"/>
+                                </variation>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bTx-EF-nK9" firstAttribute="bottom" secondItem="gP3-s1-Uqm" secondAttribute="bottomMargin" id="2sc-Wf-o08"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bTx-EF-nK9" secondAttribute="trailing" constant="-20" id="3GS-iq-8Dk"/>
+                            <constraint firstItem="bTx-EF-nK9" firstAttribute="leading" secondItem="gP3-s1-Uqm" secondAttribute="leadingMargin" constant="-20" id="kUw-sp-9sf"/>
+                            <constraint firstItem="bTx-EF-nK9" firstAttribute="top" secondItem="gP3-s1-Uqm" secondAttribute="topMargin" id="wRf-7k-vj0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="bTx-EF-nK9"/>
+                                <exclude reference="Njc-LH-iXa"/>
+                                <exclude reference="1LC-Dd-sFs"/>
+                                <exclude reference="kUM-Hr-FWk"/>
+                                <exclude reference="nGU-iV-RDT"/>
+                                <exclude reference="6XH-nq-zWm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="2sc-Wf-o08"/>
+                                <exclude reference="3GS-iq-8Dk"/>
+                                <exclude reference="kUw-sp-9sf"/>
+                                <exclude reference="wRf-7k-vj0"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="bTx-EF-nK9"/>
+                                <include reference="Njc-LH-iXa"/>
+                                <include reference="1LC-Dd-sFs"/>
+                                <include reference="kUM-Hr-FWk"/>
+                                <include reference="nGU-iV-RDT"/>
+                                <include reference="6XH-nq-zWm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="2sc-Wf-o08"/>
+                                <include reference="3GS-iq-8Dk"/>
+                                <include reference="kUw-sp-9sf"/>
+                                <include reference="wRf-7k-vj0"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="city_UITextField" destination="1LC-Dd-sFs" id="vuf-jE-lOe"/>
+                        <outlet property="retrievedInfo_UITextView" destination="6XH-nq-zWm" id="xU5-vJ-er4"/>
+                        <outlet property="retrievingInfoMessage_UILabel" destination="nGU-iV-RDT" id="Dhg-bS-rFv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="179" y="226"/>
+            <point key="canvasLocation" x="178.5" y="226"/>
         </scene>
     </scenes>
     <resources>
