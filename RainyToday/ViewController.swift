@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var retrievedInfo_UITextView: UITextView!
     
     @IBAction func clickedGetWeather(sender: UIButton) {
+        city_UITextField.resignFirstResponder()
         let city_name: String
         city_name = city_UITextField.text!
         print("Selected city: \(city_name)")
@@ -21,6 +22,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func getWeatherInfo(city: String) {
