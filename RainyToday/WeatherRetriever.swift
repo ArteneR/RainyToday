@@ -81,6 +81,9 @@ class WeatherRetriever {
         return self.retrievedDataDictionary!["main"]!["humidity"] as! Float
     }
     
+    func getCity() -> String {
+        return self.retrievedDataDictionary!["name"] as! String
+    }
     
     func getWeatherCode() -> Int {
         return self.retrievedDataDictionary!["cod"] as! Int

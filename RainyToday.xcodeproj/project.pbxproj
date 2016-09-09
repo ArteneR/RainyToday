@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554B134F1D83125E00148868 /* cities_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 554B134E1D83125E00148868 /* cities_list.json */; };
 		554D0E7B1D80889400719CA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D0E7A1D80889400719CA7 /* AppDelegate.swift */; };
 		554D0E7D1D80889400719CA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D0E7C1D80889400719CA7 /* ViewController.swift */; };
 		554D0E801D80889500719CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554D0E7E1D80889500719CA7 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		554B134E1D83125E00148868 /* cities_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cities_list.json; path = Assets.xcassets/cities_list.dataset/cities_list.json; sourceTree = "<group>"; };
 		554D0E771D80889400719CA7 /* RainyToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RainyToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554D0E7A1D80889400719CA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554D0E7C1D80889400719CA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		554D0E791D80889400719CA7 /* RainyToday */ = {
 			isa = PBXGroup;
 			children = (
+				554B134E1D83125E00148868 /* cities_list.json */,
 				554D0E7A1D80889400719CA7 /* AppDelegate.swift */,
 				554D0E7C1D80889400719CA7 /* ViewController.swift */,
 				554D0EA81D8089A800719CA7 /* WeatherRetriever.swift */,
@@ -235,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				554B134F1D83125E00148868 /* cities_list.json in Resources */,
 				554D0E851D80889500719CA7 /* LaunchScreen.storyboard in Resources */,
 				554D0E821D80889500719CA7 /* Assets.xcassets in Resources */,
 				554D0E801D80889500719CA7 /* Main.storyboard in Resources */,
@@ -489,6 +493,7 @@
 				554D0EA11D80889500719CA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		554D0EA21D80889500719CA7 /* Build configuration list for PBXNativeTarget "RainyTodayTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +502,7 @@
 				554D0EA41D80889500719CA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		554D0EA51D80889500719CA7 /* Build configuration list for PBXNativeTarget "RainyTodayUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +511,7 @@
 				554D0EA71D80889500719CA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

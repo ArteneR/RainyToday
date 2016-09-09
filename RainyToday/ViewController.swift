@@ -1,5 +1,7 @@
 
 import UIKit
+import Foundation
+
 
  typealias FinishedFetchingData = () -> ()
 
@@ -29,6 +31,11 @@ class ViewController: UIViewController {
     }
     
     func getWeatherInfo(city: String) {
+        
+        let city_id = getCityID(city)
+        print("CITY ID: \(city_id)")
+        
+        
         let weather = WeatherRetriever()
         
         // weather.getWeather(city)
@@ -40,8 +47,16 @@ class ViewController: UIViewController {
             }
             else {
                 print("Error!")
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.retrievedInfo_UITextView.text = "Couldn't fetch information for the specified city :(d"
+                })
+                return ;
             }
             
+            print(weather.getCity())
+            if weather.getCity() != "" {
+                print("invalid city!")
+            }
             
             print(weather.getWeatherCode())
             print(weather.getCityLatitude())
@@ -67,6 +82,53 @@ class ViewController: UIViewController {
             
         })
     
+    }
+    
+    func getCityID(cityName: String) -> String {
+        
+                let filename = "cities_list"
+        
+                if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
+                    
+                    
+                    do{
+                        let data = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMapped)
+                        do{
+                            let dictionary: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data,
+                                                                                                    options: NSJSONReadingOptions())
+                            if let dictionary = dictionary as? Dictionary<String, AnyObject> {
+                                print("I HATE SWIFT!")
+                                print(dictionary["records"]![0]["id"] as! Int)
+                                
+                            }
+                            else {
+                                print("Level file '\(filename)' is not valid JSON")
+                                return "NULL"
+                            }
+                        }
+                        catch {
+                            print("Level file '\(filename)' is not valid JSON: \(error)")
+                            return "NULL"
+                        }
+                        
+                        
+                    }catch {
+                        print("Could not load level file: \(filename), error: \(error)")
+                        return "NULL"
+                    }
+                    
+                } else {
+                    print("Could not find level file: \(filename)")
+                    return "NULL"
+                }
+       
+        
+        
+        
+        
+        
+        return "CITY_NAME"
+        
     }
     
     override func didReceiveMemoryWarning() {

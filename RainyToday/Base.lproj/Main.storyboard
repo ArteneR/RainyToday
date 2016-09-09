@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -141,24 +142,24 @@
                                 <exclude reference="nGU-iV-RDT"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Gt8-xo-QDN"/>
-                                <exclude reference="Tox-VY-3ie"/>
-                                <exclude reference="UUK-gU-Qhr"/>
-                                <exclude reference="zbq-FK-d8T"/>
-                                <exclude reference="9I6-Zm-CRJ"/>
-                                <exclude reference="J9q-I3-VtB"/>
-                                <exclude reference="TU5-Mk-6vx"/>
                                 <exclude reference="Qt1-bK-3BK"/>
                                 <exclude reference="Up3-dJ-5oz"/>
                                 <exclude reference="9CF-Va-9kU"/>
                                 <exclude reference="b65-bf-K0M"/>
+                                <exclude reference="9I6-Zm-CRJ"/>
+                                <exclude reference="J9q-I3-VtB"/>
+                                <exclude reference="TU5-Mk-6vx"/>
                                 <exclude reference="BkO-E9-YBr"/>
                                 <exclude reference="NhW-hn-5fA"/>
                                 <exclude reference="jph-JS-3Vs"/>
+                                <exclude reference="Jd8-JF-0ab"/>
                                 <exclude reference="KNw-yQ-JTE"/>
                                 <exclude reference="utz-da-Ad8"/>
                                 <exclude reference="xsT-cA-Z5H"/>
-                                <exclude reference="Jd8-JF-0ab"/>
+                                <exclude reference="Gt8-xo-QDN"/>
+                                <exclude reference="Tox-VY-3ie"/>
+                                <exclude reference="UUK-gU-Qhr"/>
+                                <exclude reference="zbq-FK-d8T"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -171,24 +172,24 @@
                                 <include reference="nGU-iV-RDT"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Gt8-xo-QDN"/>
-                                <include reference="Tox-VY-3ie"/>
-                                <include reference="UUK-gU-Qhr"/>
-                                <include reference="zbq-FK-d8T"/>
-                                <include reference="9I6-Zm-CRJ"/>
-                                <include reference="J9q-I3-VtB"/>
-                                <include reference="TU5-Mk-6vx"/>
                                 <include reference="Qt1-bK-3BK"/>
                                 <include reference="Up3-dJ-5oz"/>
                                 <include reference="9CF-Va-9kU"/>
                                 <include reference="b65-bf-K0M"/>
+                                <include reference="9I6-Zm-CRJ"/>
+                                <include reference="J9q-I3-VtB"/>
+                                <include reference="TU5-Mk-6vx"/>
                                 <include reference="BkO-E9-YBr"/>
                                 <include reference="NhW-hn-5fA"/>
                                 <include reference="jph-JS-3Vs"/>
+                                <include reference="Jd8-JF-0ab"/>
                                 <include reference="KNw-yQ-JTE"/>
                                 <include reference="utz-da-Ad8"/>
                                 <include reference="xsT-cA-Z5H"/>
-                                <include reference="Jd8-JF-0ab"/>
+                                <include reference="Gt8-xo-QDN"/>
+                                <include reference="Tox-VY-3ie"/>
+                                <include reference="UUK-gU-Qhr"/>
+                                <include reference="zbq-FK-d8T"/>
                             </mask>
                         </variation>
                     </view>
