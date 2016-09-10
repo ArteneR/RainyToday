@@ -91,6 +91,10 @@ class WeatherRetriever {
         return self.retrievedDataDictionary!["name"] as! String
     }
     
+    func getCountryCode() -> String {
+        return self.retrievedDataDictionary!["sys"]!["country"] as! String
+    }
+    
     func getWeatherCode() -> Int {
         return self.retrievedDataDictionary!["cod"] as! Int
     }

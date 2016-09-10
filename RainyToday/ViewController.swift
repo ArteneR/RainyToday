@@ -3,26 +3,48 @@ import UIKit
 import Foundation
 
 
- typealias FinishedFetchingData = () -> ()
+typealias FinishedFetchingData = () -> ()
 
 class ViewController: UIViewController {
 
    
     @IBOutlet weak var city_UITextField: UITextField!
+    @IBOutlet weak var countryCode_UITextField: UITextField!
     @IBOutlet weak var retrievingInfoMessage_UILabel: UILabel!
     @IBOutlet weak var retrievedInfo_UITextView: UITextView!
     @IBOutlet weak var weatherIcon_UIImageView: UIImageView!
-    
-    
+    @IBOutlet weak var activityIndicatorGetWeather: UIActivityIndicatorView!
+ 
     
     @IBAction func clickedGetWeather(sender: UIButton) {
         city_UITextField.resignFirstResponder()
+        activityIndicatorGetWeather.startAnimating()
+        
         let city_name: String
         city_name = city_UITextField.text!
         print("Selected city: \(city_name)")
-        retrievingInfoMessage_UILabel.text = "Fetching information for city \(city_name)"
         
-        self.getWeatherInfo(city_name)
+        var countryCode: String
+        countryCode = countryCode_UITextField.text!
+        countryCode = countryCode.uppercaseString
+        print("Selected country code: \(countryCode)")
+        
+        retrievingInfoMessage_UILabel.text = "Fetching information for city \(city_name)\(countryCode == "" ? "" : ",\(countryCode)")..."
+        
+        let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+        dispatch_async(backgroundQueue) { () -> Void in
+            self.getWeatherInfo(city_name, country_code: countryCode)
+            
+            
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.activityIndicatorGetWeather.stopAnimating()
+                self.retrievingInfoMessage_UILabel.text = ""
+            })
+            
+        }
+        
+        
     }
     
     
@@ -32,15 +54,15 @@ class ViewController: UIViewController {
     }
     
     
-    func getWeatherInfo(city: String) {
+    func getWeatherInfo(city: String, country_code: String) {
         
-        let city_id = getCityID(city)
+        let city_id = getCityID(city, countryCode: country_code)
         print("CITY ID: \(city_id)")
       
         if city_id == -1 {
             print("invalid city!")
             dispatch_async(dispatch_get_main_queue(), {
-                self.retrievedInfo_UITextView.text = "Couldn't fetch information for the specified city \(city) ¬:("
+                self.retrievedInfo_UITextView.text = "Couldn't fetch information for the specified city \(city)\(country_code == "" ? "" : ",\(country_code)") :("
             })
             return ;
         }
@@ -72,12 +94,13 @@ class ViewController: UIViewController {
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.retrievedInfo_UITextView.text =
+                    "City: \(weather.getCity()), \(weather.getCountryCode()) \n" +
                     "Code: \(weather.getWeatherCode())\n" +
                     "Lat: \(weather.getCityLatitude())\n" +
                     "Lon: \(weather.getCityLongitude())\n" +
-                    "Temperature: \(weather.kelvinToCelsius(weather.getTemperature()))\n" +
-                    "Min temperature: \(weather.kelvinToCelsius(weather.getMinTemperature()))\n" +
-                    "Max temperature: \(weather.kelvinToCelsius(weather.getMaxTemperature()))\n" +
+                "Temperature: \(weather.kelvinToCelsius(weather.getTemperature()))\u{00B0}C\n" +
+                    "Min temperature: \(weather.kelvinToCelsius(weather.getMinTemperature()))\u{00B0}C\n" +
+                    "Max temperature: \(weather.kelvinToCelsius(weather.getMaxTemperature()))\u{00B0}C\n" +
                     "Humidity: \(weather.getHumidity())\n" +
                     "Pressure: \(weather.getPressure())\n"
                 
@@ -147,7 +170,16 @@ class ViewController: UIViewController {
     }
     
     
-    func getCityID(cityName: String) -> Int {
+    func setLoadingGif(city_name:String, countryCode:String, completionHandler: CompletionHandler) {
+        
+        self.retrievingInfoMessage_UILabel.text = "Fetching information for city \(city_name)\(countryCode == "" ? "" : ",\(countryCode)")"
+        
+        let flag = true
+        completionHandler(success: flag)
+    }
+    
+    
+    func getCityID(cityName: String, countryCode: String) -> Int {
                 let filename = "cities_list"
         
                 if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
@@ -163,9 +195,15 @@ class ViewController: UIViewController {
                                 // Must also include Country
                                 for index in 0...total_records-1 {
                                     if (dictionary["records"]![index]["n"] as! String) == cityName {
-                                        print("found!")
-                                    
-                                        return dictionary["records"]![index]["id"] as! Int
+                                        print("found city!")
+                                        
+                                        if countryCode == "" {
+                                            return dictionary["records"]![index]["id"] as! Int
+                                        }
+                                        
+                                        if (dictionary["records"]![index]["c"] as! String) == countryCode {
+                                            return dictionary["records"]![index]["id"] as! Int
+                                        }
                                     }
                                 }
                                 return -1
