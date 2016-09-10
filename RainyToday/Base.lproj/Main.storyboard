@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,177 +17,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bTx-EF-nK9">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njc-LH-iXa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njc-LH-iXa" userLabel="GetWeather_Button">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="fDb-xj-Cma"/>
-                                    <constraint firstAttribute="height" constant="30" id="xuB-zn-zhF"/>
-                                </constraints>
                                 <state key="normal" title="Get Weather"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="fDb-xj-Cma"/>
-                                        <exclude reference="xuB-zn-zhF"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="fDb-xj-Cma"/>
-                                        <include reference="xuB-zn-zhF"/>
-                                    </mask>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="145" y="181" width="110" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="clickedGetWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Csr-4x-cJj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1LC-Dd-sFs">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="eg. Romania" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1LC-Dd-sFs" userLabel="EnterCityName_TextField">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="210" id="gMk-9w-Tps"/>
-                                    <constraint firstAttribute="height" constant="30" id="krX-zC-usa"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="gMk-9w-Tps"/>
-                                        <exclude reference="krX-zC-usa"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="gMk-9w-Tps"/>
-                                        <include reference="krX-zC-usa"/>
-                                    </mask>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="40" y="136" width="185" height="30"/>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter city name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUM-Hr-FWk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter city name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUM-Hr-FWk" userLabel="EnterCityName_Label">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="B28-LW-W4W"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="B28-LW-W4W"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="B28-LW-W4W"/>
-                                    </mask>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="40" y="107" width="185" height="21"/>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6XH-nq-zWm">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6XH-nq-zWm" userLabel="RetrievedInfo_UITextView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="40" y="264" width="320" height="252"/>
+                                </variation>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGU-iV-RDT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching information...for city which is too large to display on one line" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGU-iV-RDT">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="qnW-25-QdF"/>
-                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="40" y="211" width="320" height="45"/>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j0y-pv-k0E">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="175" y="28" width="50" height="50"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-lS-4dc" userLabel="CountryCode_Label">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="qnW-25-QdF"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="qnW-25-QdF"/>
-                                    </mask>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="251" y="107" width="109" height="21"/>
                                 </variation>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="eg. RO" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jd2-0X-t1M" userLabel="CountryCode_TextField">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="251" y="136" width="81" height="30"/>
+                                </variation>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bTx-EF-nK9" userLabel="Background_UIImage">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Njc-LH-iXa" firstAttribute="leading" secondItem="gP3-s1-Uqm" secondAttribute="leadingMargin" constant="21" id="9CF-Va-9kU" userLabel="GetWeather_left"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kUM-Hr-FWk" secondAttribute="trailing" constant="20" id="9I6-Zm-CRJ" userLabel="EnterCityName_right"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nGU-iV-RDT" secondAttribute="trailing" constant="20" id="BkO-E9-YBr" userLabel="RetrievingInfoMessage_right"/>
-                            <constraint firstItem="bTx-EF-nK9" firstAttribute="leading" secondItem="gP3-s1-Uqm" secondAttribute="leadingMargin" constant="-20" id="Gt8-xo-QDN" userLabel="Background-left"/>
-                            <constraint firstItem="kUM-Hr-FWk" firstAttribute="leading" secondItem="gP3-s1-Uqm" secondAttribute="leadingMargin" constant="20" id="J9q-I3-VtB" userLabel="EnterCityName_left"/>
-                            <constraint firstItem="s5f-yr-hZ8" firstAttribute="top" secondItem="6XH-nq-zWm" secondAttribute="bottom" constant="40" id="Jd8-JF-0ab" userLabel="RetrievedInfo_bottom"/>
-                            <constraint firstItem="6XH-nq-zWm" firstAttribute="leading" secondItem="gP3-s1-Uqm" secondAttribute="leadingMargin" constant="20" id="KNw-yQ-JTE" userLabel="RetrievedInfo_left"/>
-                            <constraint firstItem="nGU-iV-RDT" firstAttribute="top" secondItem="Njc-LH-iXa" secondAttribute="bottom" constant="2" id="NhW-hn-5fA" userLabel="RetrievingInfoMessage_top"/>
-                            <constraint firstItem="1LC-Dd-sFs" firstAttribute="leading" secondItem="gP3-s1-Uqm" secondAttribute="leadingMargin" constant="20" id="Qt1-bK-3BK" userLabel="EnterCityNameTF_left"/>
-                            <constraint firstItem="kUM-Hr-FWk" firstAttribute="top" secondItem="XZR-H7-IIR" secondAttribute="bottom" constant="58" id="TU5-Mk-6vx" userLabel="EnterCityName_top"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bTx-EF-nK9" secondAttribute="trailing" constant="-20" id="Tox-VY-3ie" userLabel="Background-right"/>
-                            <constraint firstItem="bTx-EF-nK9" firstAttribute="top" secondItem="gP3-s1-Uqm" secondAttribute="topMargin" id="UUK-gU-Qhr" userLabel="Background-top"/>
-                            <constraint firstItem="1LC-Dd-sFs" firstAttribute="top" secondItem="kUM-Hr-FWk" secondAttribute="bottom" constant="8" id="Up3-dJ-5oz" userLabel="EnterCityNameTF_top"/>
-                            <constraint firstItem="Njc-LH-iXa" firstAttribute="top" secondItem="1LC-Dd-sFs" secondAttribute="bottom" constant="14" id="b65-bf-K0M" userLabel="GetWeather_top"/>
-                            <constraint firstItem="nGU-iV-RDT" firstAttribute="leading" secondItem="gP3-s1-Uqm" secondAttribute="leadingMargin" constant="20" id="jph-JS-3Vs" userLabel="RetrievingInfoMessage_left"/>
-                            <constraint firstItem="6XH-nq-zWm" firstAttribute="top" secondItem="nGU-iV-RDT" secondAttribute="bottom" constant="16" id="utz-da-Ad8" userLabel="RetrievedInfo_top"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6XH-nq-zWm" secondAttribute="trailing" constant="20" id="xsT-cA-Z5H" userLabel="RetrievedInfo_right"/>
-                            <constraint firstItem="bTx-EF-nK9" firstAttribute="bottom" secondItem="gP3-s1-Uqm" secondAttribute="bottomMargin" id="zbq-FK-d8T" userLabel="Background-bottom"/>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="bTx-EF-nK9"/>
                                 <exclude reference="Njc-LH-iXa"/>
                                 <exclude reference="1LC-Dd-sFs"/>
                                 <exclude reference="kUM-Hr-FWk"/>
                                 <exclude reference="6XH-nq-zWm"/>
                                 <exclude reference="nGU-iV-RDT"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="Qt1-bK-3BK"/>
-                                <exclude reference="Up3-dJ-5oz"/>
-                                <exclude reference="9CF-Va-9kU"/>
-                                <exclude reference="b65-bf-K0M"/>
-                                <exclude reference="9I6-Zm-CRJ"/>
-                                <exclude reference="J9q-I3-VtB"/>
-                                <exclude reference="TU5-Mk-6vx"/>
-                                <exclude reference="BkO-E9-YBr"/>
-                                <exclude reference="NhW-hn-5fA"/>
-                                <exclude reference="jph-JS-3Vs"/>
-                                <exclude reference="Jd8-JF-0ab"/>
-                                <exclude reference="KNw-yQ-JTE"/>
-                                <exclude reference="utz-da-Ad8"/>
-                                <exclude reference="xsT-cA-Z5H"/>
-                                <exclude reference="Gt8-xo-QDN"/>
-                                <exclude reference="Tox-VY-3ie"/>
-                                <exclude reference="UUK-gU-Qhr"/>
-                                <exclude reference="zbq-FK-d8T"/>
+                                <exclude reference="j0y-pv-k0E"/>
+                                <exclude reference="SGe-lS-4dc"/>
+                                <exclude reference="Jd2-0X-t1M"/>
+                                <exclude reference="bTx-EF-nK9"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="bTx-EF-nK9"/>
                                 <include reference="Njc-LH-iXa"/>
                                 <include reference="1LC-Dd-sFs"/>
                                 <include reference="kUM-Hr-FWk"/>
                                 <include reference="6XH-nq-zWm"/>
                                 <include reference="nGU-iV-RDT"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="Qt1-bK-3BK"/>
-                                <include reference="Up3-dJ-5oz"/>
-                                <include reference="9CF-Va-9kU"/>
-                                <include reference="b65-bf-K0M"/>
-                                <include reference="9I6-Zm-CRJ"/>
-                                <include reference="J9q-I3-VtB"/>
-                                <include reference="TU5-Mk-6vx"/>
-                                <include reference="BkO-E9-YBr"/>
-                                <include reference="NhW-hn-5fA"/>
-                                <include reference="jph-JS-3Vs"/>
-                                <include reference="Jd8-JF-0ab"/>
-                                <include reference="KNw-yQ-JTE"/>
-                                <include reference="utz-da-Ad8"/>
-                                <include reference="xsT-cA-Z5H"/>
-                                <include reference="Gt8-xo-QDN"/>
-                                <include reference="Tox-VY-3ie"/>
-                                <include reference="UUK-gU-Qhr"/>
-                                <include reference="zbq-FK-d8T"/>
+                                <include reference="j0y-pv-k0E"/>
+                                <include reference="SGe-lS-4dc"/>
+                                <include reference="Jd2-0X-t1M"/>
+                                <include reference="bTx-EF-nK9"/>
                             </mask>
                         </variation>
                     </view>
@@ -199,11 +126,12 @@
                         <outlet property="city_UITextField" destination="1LC-Dd-sFs" id="vuf-jE-lOe"/>
                         <outlet property="retrievedInfo_UITextView" destination="6XH-nq-zWm" id="xU5-vJ-er4"/>
                         <outlet property="retrievingInfoMessage_UILabel" destination="nGU-iV-RDT" id="Dhg-bS-rFv"/>
+                        <outlet property="weatherIcon_UIImageView" destination="j0y-pv-k0E" id="Mhg-2t-eIo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139.5" y="238"/>
+            <point key="canvasLocation" x="613.5" y="254"/>
         </scene>
     </scenes>
     <resources>

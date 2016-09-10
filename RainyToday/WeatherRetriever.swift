@@ -24,11 +24,12 @@ class WeatherRetriever {
         self.retrievedDataDictionary = nil
     }
     
-    func getWeather(city: String, completionHandler: CompletionHandler) {
+    func getWeather(city_id: Int, completionHandler: CompletionHandler) {
         
         let session = NSURLSession.sharedSession()
+        print("ID is \(city_id)")
         
-        let weatherRequestURL = NSURL(string: "\(openWeatherMapBaseURL)?APPID=\(openWeatherMapAPIKey)&q=\(city)")!
+        let weatherRequestURL = NSURL(string: "\(openWeatherMapBaseURL)?APPID=\(openWeatherMapAPIKey)&id=\(city_id)")!
         
         _ = session.dataTaskWithURL(weatherRequestURL, completionHandler:
             { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
@@ -50,6 +51,11 @@ class WeatherRetriever {
         
         }).resume()
      
+    }
+    
+    func kelvinToCelsius(temp_kelvin:Float) -> Float {
+        let temp_celsius = temp_kelvin - 273.15
+        return temp_celsius
     }
     
     
