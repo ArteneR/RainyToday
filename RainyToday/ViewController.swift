@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var retrievedInfo_UITextView: UITextView!
     @IBOutlet weak var weatherIcon_UIImageView: UIImageView!
     @IBOutlet weak var activityIndicatorGetWeather: UIActivityIndicatorView!
- 
+    @IBOutlet weak var background_UIImageView: UIImageView!
+    
     
     @IBAction func clickedGetWeather(sender: UIButton) {
         city_UITextField.resignFirstResponder()
@@ -82,7 +83,7 @@ class ViewController: UIViewController {
                 return ;
             }
             
-            print(weather.getWeatherCode())
+            print(weather.getWeatherId())
             print(weather.getCityLatitude())
             print(weather.getCityLongitude())
             print(weather.kelvinToCelsius(weather.getTemperature()))
@@ -95,54 +96,69 @@ class ViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue(), {
                 self.retrievedInfo_UITextView.text =
                     "City: \(weather.getCity()), \(weather.getCountryCode()) \n" +
-                    "Code: \(weather.getWeatherCode())\n" +
-                    "Lat: \(weather.getCityLatitude())\n" +
-                    "Lon: \(weather.getCityLongitude())\n" +
-                "Temperature: \(weather.kelvinToCelsius(weather.getTemperature()))\u{00B0}C\n" +
+                    "WeatherID: \(weather.getWeatherId())\n" +
+                    "Lat: \(weather.getCityLatitude())\u{00B0}\n" +
+                    "Lon: \(weather.getCityLongitude())\u{00B0}\n" +
+                    "Temperature: \(weather.kelvinToCelsius(weather.getTemperature()))\u{00B0}C\n" +
                     "Min temperature: \(weather.kelvinToCelsius(weather.getMinTemperature()))\u{00B0}C\n" +
                     "Max temperature: \(weather.kelvinToCelsius(weather.getMaxTemperature()))\u{00B0}C\n" +
-                    "Humidity: \(weather.getHumidity())\n" +
-                    "Pressure: \(weather.getPressure())\n"
+                    "Humidity: \(weather.getHumidity()) %\n" +
+                    "Pressure: \(weather.getPressure()) hPa\n" +
+                    "Weather main: \(weather.getWeatherMain())\n" +
+                    "Weather Description: \(weather.getWeatherDescription())\n" +
+                    "Wind speed: \(weather.getWindSpeed()) m/s\n" +
+                    "Clouds: \(weather.getClouds()) %\n"
                 
                 
-                let weatherCode = weather.getWeatherCode()
+                let weatherId = weather.getWeatherId()
                 var weatherIconName:String = "02d" // Should be no weather info here
+                var weatherBackground:String = "ClearSky01"
                 
-                switch (weatherCode) {
+                
+                switch (weatherId) {
                     case 200, 201, 202, 210, 211, 212, 221, 230, 231, 232:
                         weatherIconName = "11d"
+                        weatherBackground = "Thunderstorm01"
                         break
                     
                     case 300, 301, 302, 310, 311, 312, 313, 314, 321, 520, 521, 522, 531:
                         weatherIconName = "09d"
+                        weatherBackground = "ShowerRain01"
                         break
                     
                     case 500, 501, 502, 503, 504:
                         weatherIconName = "10d"
+                        weatherBackground = "Rain01"
                         break
                     
                     case 511, 600, 601, 602, 611, 612, 615, 616, 620, 621, 622:
                         weatherIconName = "13d"
+                        weatherBackground = "Snow01"
                         break
                     
                     case 701, 711, 721, 731, 741, 751, 761, 762, 771, 781:
                         weatherIconName = "50d"
+                        weatherBackground = "Mist01"
                         break
                     
                     case 800:
                         weatherIconName = "01d"
+                        weatherBackground = "ClearSky01"
                         break
                     
                     case 801:
                         weatherIconName = "02d"
+                        weatherBackground = "FewClouds01"
                         break
                     
                     case 802:
                         weatherIconName = "03d"
+                        weatherBackground = "ScatteredClouds01"
                         break
                     
                     case 803, 804:
                         weatherIconName = "04d"
+                        weatherBackground = "BrokenClouds01"
                         break
                     
                     case 900, 901, 902, 903, 904, 905, 906:
@@ -162,6 +178,7 @@ class ViewController: UIViewController {
               
                 
                 self.weatherIcon_UIImageView.image = UIImage(named: weatherIconName)
+                self.background_UIImageView.image = UIImage(named: weatherBackground)
                 
             })
             

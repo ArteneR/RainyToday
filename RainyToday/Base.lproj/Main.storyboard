@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -26,6 +27,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TLc-BI-24Z"/>
                                 </constraints>
+                                <color key="tintColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <state key="normal" title="Get Weather"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -43,6 +45,7 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="eg. Timisoara" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1LC-Dd-sFs" userLabel="EnterCityName_TextField">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.35932112068965516" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="qz8-nj-d4d"/>
                                     <constraint firstAttribute="width" constant="185" id="sUd-Sb-C1n"/>
@@ -84,12 +87,6 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6XH-nq-zWm" userLabel="RetrievedInfo_UITextView">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGU-iV-RDT">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
@@ -149,6 +146,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="eg. RO" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jd2-0X-t1M" userLabel="CountryCode_TextField">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.35932112068965516" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="81" id="COl-1P-vWb"/>
                                     <constraint firstAttribute="height" constant="30" id="n9U-zB-pyY"/>
@@ -187,6 +185,13 @@
                                     </mask>
                                 </variation>
                             </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6XH-nq-zWm" userLabel="RetrievedInfo_UITextView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.24191810344827586" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -224,12 +229,12 @@
                                 <exclude reference="Njc-LH-iXa"/>
                                 <exclude reference="1LC-Dd-sFs"/>
                                 <exclude reference="kUM-Hr-FWk"/>
-                                <exclude reference="6XH-nq-zWm"/>
                                 <exclude reference="nGU-iV-RDT"/>
                                 <exclude reference="j0y-pv-k0E"/>
                                 <exclude reference="SGe-lS-4dc"/>
                                 <exclude reference="Jd2-0X-t1M"/>
                                 <exclude reference="p0Q-4I-2nL"/>
+                                <exclude reference="6XH-nq-zWm"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="RPG-kd-f9P"/>
@@ -267,12 +272,12 @@
                                 <include reference="Njc-LH-iXa"/>
                                 <include reference="1LC-Dd-sFs"/>
                                 <include reference="kUM-Hr-FWk"/>
-                                <include reference="6XH-nq-zWm"/>
                                 <include reference="nGU-iV-RDT"/>
                                 <include reference="j0y-pv-k0E"/>
                                 <include reference="SGe-lS-4dc"/>
                                 <include reference="Jd2-0X-t1M"/>
                                 <include reference="p0Q-4I-2nL"/>
+                                <include reference="6XH-nq-zWm"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="RPG-kd-f9P"/>
@@ -309,6 +314,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicatorGetWeather" destination="p0Q-4I-2nL" id="3fR-kj-lkR"/>
+                        <outlet property="background_UIImageView" destination="bTx-EF-nK9" id="sNa-mO-ck9"/>
                         <outlet property="city_UITextField" destination="1LC-Dd-sFs" id="vuf-jE-lOe"/>
                         <outlet property="countryCode_UITextField" destination="Jd2-0X-t1M" id="Mcl-vZ-1cz"/>
                         <outlet property="retrievedInfo_UITextView" destination="6XH-nq-zWm" id="xU5-vJ-er4"/>

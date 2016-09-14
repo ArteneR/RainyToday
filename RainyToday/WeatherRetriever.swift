@@ -67,6 +67,18 @@ class WeatherRetriever {
         return self.retrievedDataDictionary!["coord"]!["lat"] as! Float
     }
     
+    func getWeatherId() -> Int {
+        return self.retrievedDataDictionary!["weather"]![0]!["id"] as! Int
+    }
+    
+    func getWeatherMain() -> String {
+        return self.retrievedDataDictionary!["weather"]![0]!["main"] as! String
+    }
+    
+    func getWeatherDescription() -> String {
+        return self.retrievedDataDictionary!["weather"]![0]!["description"] as! String
+    }
+    
     func getTemperature() -> Float {
         return self.retrievedDataDictionary!["main"]!["temp"] as! Float
     }
@@ -87,6 +99,14 @@ class WeatherRetriever {
         return self.retrievedDataDictionary!["main"]!["humidity"] as! Float
     }
     
+    func getWindSpeed() -> Float {
+        return self.retrievedDataDictionary!["wind"]!["speed"] as! Float
+    }
+    
+    func getClouds() -> Int {
+        return self.retrievedDataDictionary!["clouds"]!["all"] as! Int
+    }
+    
     func getCity() -> String {
         return self.retrievedDataDictionary!["name"] as! String
     }
@@ -95,9 +115,7 @@ class WeatherRetriever {
         return self.retrievedDataDictionary!["sys"]!["country"] as! String
     }
     
-    func getWeatherCode() -> Int {
-        return self.retrievedDataDictionary!["cod"] as! Int
-    }
+    
     
     
     
